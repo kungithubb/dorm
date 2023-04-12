@@ -1,42 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>登陆</title>
 
-<link href="../static/css/Bootstrap v5.3.0-alpha1/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/css/Bootstrap v5.3.0-alpha1/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="../static/css/sign-in.css" rel="stylesheet">
-  </head>
-  <body class="text-center">
-    
-<main class="form-signin w-100 m-auto">
-  <form action="/welcome">
-    <img class="mb-4" src="../static/img/tools.svg" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">校园宿舍报修平台</h1>
+  <!-- Custom styles for this template -->
+  <link href="../static/css/sign-in.css" rel="stylesheet">
+</head>
+<body class="text-center">
 
-    <div class="form-floating">
-      <input type="text" class="form-control" id="Account" placeholder="Account">
-      <label for="Account"><img src="../static/img/person.svg">&nbsp;账号</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="Password" placeholder="Password">
-      <label for="Password"><img src="../static/img/lock.svg">&nbsp;密码</label>
-    </div>
-    <div class="form-floating mt-0 mb-0">
-      <select class="form-select" id="Status" style="padding: 18px 36px 18px 12px;">
-        <option>学生</option>
-        <option>维修人员</option>
-        <option>管理员</option>
-      </select>
-    </div>
+  <main class="form-signin w-100 m-auto">
+    <form name="myForm" method="post" action="/login" onsubmit="SubmitLogin()">
+      <img class="mb-4" src="../static/img/tools.svg" alt="" width="72" height="57">
+      <h1 class="h3 mb-3 fw-normal">校园宿舍报修平台</h1>
 
-    <button class="w-100 btn btn-lg btn-primary mt-5" type="submit">登录</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2023 Dorm Repair</p>
-  </form>
-</main>
+      <div class="form-floating">
+        <input type="text" name="userName" value="2023001" class="form-control" id="Account" placeholder="Account">
+        <label for="Account"><img src="../static/img/person.svg">&nbsp;账号</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" name="password" class="form-control" id="Password" placeholder="Password">
+        <label for="Password"><img src="../static/img/lock.svg">&nbsp;密码</label>
+      </div>
+      <div class="form-floating mt-0 mb-0">
+        <select class="form-select" id="Status" style="padding: 18px 36px 18px 12px;">
+          <option>学生</option>
+          <option>维修人员</option>
+          <option>管理员</option>
+        </select>
+      </div>
 
-  </body>
+      <button class="w-100 btn btn-lg btn-primary mt-5" type="submit">登录</button>
+    </form>
+      <p class="mt-5 mb-3 text-muted">&copy; 2023 Dorm Repair</p>
+  </main>
+
+</body>
+<script>
+  //提交登录
+  function SubmitLogin() {
+    //判断用户名是否为空
+    if (!myForm.userName.value) {
+      alert("请输入用户姓名！");
+      myForm.userName.focus();
+      return false;
+    }
+
+    //判断密码是否为空
+    if (!myForm.password.value) {
+      alert("请输入登录密码！");
+      myForm.password.focus();
+      return false;
+    }
+    return true;
+  }
+</script>
 </html>

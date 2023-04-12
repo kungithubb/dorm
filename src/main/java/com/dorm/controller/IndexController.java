@@ -4,12 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class WelcomeController {
+public class IndexController {
 
-    @RequestMapping("/welcome")
-    public String Welcome(){
+    @RequestMapping("/index")
+    public String toIndexPage(){
 
-        return "welcome";
+        return "index";
     }
 
 }
