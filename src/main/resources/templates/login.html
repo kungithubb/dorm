@@ -13,16 +13,15 @@
 <body class="text-center">
 
   <main class="form-signin w-100 m-auto">
+    <img class="mb-4" src="../static/img/tools.svg" alt="" width="72" height="57">
+    <h1 class="h3 mb-3 fw-normal">校园宿舍报修平台</h1>
     <form name="myForm" method="post" action="/login" onsubmit="SubmitLogin()">
-      <img class="mb-4" src="../static/img/tools.svg" alt="" width="72" height="57">
-      <h1 class="h3 mb-3 fw-normal">校园宿舍报修平台</h1>
-
       <div class="form-floating">
-        <input type="text" name="userName" value="2023001" class="form-control" id="Account" placeholder="Account">
+        <input type="text" name="username" value="123" class="form-control" id="Account" placeholder="Account">
         <label for="Account"><img src="../static/img/person.svg">&nbsp;账号</label>
       </div>
       <div class="form-floating">
-        <input type="password" name="password" class="form-control" id="Password" placeholder="Password">
+        <input type="password" name="password" value="123" class="form-control" id="Password" placeholder="Password">
         <label for="Password"><img src="../static/img/lock.svg">&nbsp;密码</label>
       </div>
       <div class="form-floating mt-0 mb-0">
@@ -43,9 +42,9 @@
   //提交登录
   function SubmitLogin() {
     //判断用户名是否为空
-    if (!myForm.userName.value) {
+    if (!myForm.username.value) {
       alert("请输入用户姓名！");
-      myForm.userName.focus();
+      myForm.username.focus();
       return false;
     }
 

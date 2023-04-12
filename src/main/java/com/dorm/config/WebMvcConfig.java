@@ -33,7 +33,8 @@ public class WebMvcConfig implements WebMvcConfigurer{
         InterceptorRegistration registration = registry.addInterceptor(new LoginInterceptor());
         registration.addPathPatterns("/**"); //所有路径都被拦截
         registration.excludePathPatterns( //添加不拦截路径
-                "/toLoginPage"        //登录页面
+                "/toLoginPage",           //登录页面
+                "/login"            //登录请求
         );
     }
 }

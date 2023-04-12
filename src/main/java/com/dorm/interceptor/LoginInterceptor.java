@@ -23,7 +23,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         }
         else {
             //判断用户是否登录
-            if(request.getSession().getAttribute("userName")!=null) {
+            if(request.getSession().getAttribute("username")!=null) {
                 //说明已经登录，放行
                 return true;
             }
