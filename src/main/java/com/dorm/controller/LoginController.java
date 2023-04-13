@@ -1,112 +1,61 @@
 package com.dorm.controller;
 
+import com.dorm.dao.UserDao;
+import com.dorm.entity.User;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
- * 登录控制器
+ * 配置登录控制器
  */
+@Slf4j
 @Controller
 public class LoginController {
 
-    /*private static File userDir;
-    static {
-        userDir = new File("./users");
-        if(!userDir.exists()){
-            userDir.mkdirs();
-        }
-    }*/
+    @Autowired
+    private UserDao userDao;
 
     /**
      * 登陆页面
      */
-    @RequestMapping("/toLoginPage")
+    @GetMapping(value = {"/index","/admin/login","/"})
     public String toLoginPage(){
-
 //        跳转至登录页面
         return "login";
     }
 
     /**
      * 用户登录
-     *
+     *登录认证方法
+     * 连接数据库user表登录后台系统
      */
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(Model model, HttpServletRequest request, String username, String password)
-    {
+    @RequestMapping(value = "/admin/login", method = RequestMethod.POST)
+    public String login(Model model, HttpServletRequest request, HttpSession session) {
 
-        //验证登录信息
-        if (username.equals("123") && password.equals("123"))
-        {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        log.info("username:{}", username);
+        log.info("password:{}", password);
+        User user = userDao.selectUser(username,password);
+        if(user != null) {
 
-            //验证成功，记录Session信息
-            request.getSession().setAttribute("username", username);
+            session.setAttribute("username","password");
+            return "redirect:/admin/main";
+        } else {
 
-            //重定向到首页
-            return "redirect:toIndexPage";
-        }
-        else {
-
-            //跳转至登录页面
-            return toLoginPage();
+            model.addAttribute("error","用户名或密码不正确");
+//            如果输入的username,password不正确，则返回登录页
+            return "login";
         }
     }
-
-//    @RequestMapping("/loginUser")
-//    private void login(HttpServletRequest request, HttpServletResponse response) {
-//
-//        String username = request.getParameter("username");
-//        String password = request.getParameter("password");
-//        if(username == null || username.isEmpty() || password == null || password.isEmpty()) {
-//
-//            try {
-//
-//                response.sendRedirect("login_info_error");
-//            } catch (IOException e) {
-//
-//                e.printStackTrace();
-//            }
-//            return;
-//        }
-//        File userFile = new File(userDir,username + ".obj");
-////        用户名没有输入正确
-//        if(!userFile.exists()) {
-//
-//            try {
-//
-//                response.sendRedirect("login_fail");
-//            } catch (IOException e) {
-//
-//                e.printStackTrace();
-//            }
-//        } else {
-////        用户名输入正确
-//            try(
-//
-//                FileInputStream fis = new FileInputStream(userFile);
-//                ObjectInputStream ois = new ObjectInputStream(fis);
-//            ) {
-////                读取该注册用户信息
-//                User user = (User)ois.readObject();
-////                用户名和密码正确
-//                if(username.equals(user.getUsername()) && password.equals(user.getPassword())) {
-////                    登录成功
-//                    response.sendRedirect("login_success");
-//                    return;
-//                } else {
-////                用户名或密码不正确
-//                    response.sendRedirect("login_fail");
-//                }
-//            } catch (IOException | ClassNotFoundException e) {
-//
-//                e.printStackTrace();
-//            }
-//        }
-//    }
 
     /**
      * 登出
@@ -119,7 +68,7 @@ public class LoginController {
         request.getSession().invalidate();
 
         //重定向到登录页面
-        return "redirect:toLoginPage";
+        return "redirect:/admin/login";
     }
 }
 

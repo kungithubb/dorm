@@ -2,8 +2,12 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>宿舍管理</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<title>宿舍管理 - 报修-后台管理系统</title>
+		<link rel="icon" href="../static/img/tools.svg">
+		<meta name="keywords" content="校园宿舍报修平台,SpringBoot">
+		<meta name="description" content="这是一个基于SprinBoot v2.3.7RELEASE 的后台管理系统。">
+		<meta name="author" content="liukun">
 
 		<!-- bootstrap & fontawesome -->
 		<link rel="stylesheet" href="../static/css/Bootstrap v3.3.6/bootstrap.min.css" />
@@ -20,7 +24,7 @@
 		<div id="navbar" class="navbar navbar-default ace-save-state" style="height: 65.6px;background-color: rgb(113, 44, 249);">
 			<div class="navbar-container ace-save-state" id="navbar-container">
 				<div class="navbar-header pull-left" style="margin-top: 3.3px;margin-left: 100px;">
-					<a href="/toIndexPage" class="navbar-brand" style="font-size: 25px;">
+					<a href="/admin/main" class="navbar-brand" style="font-size: 25px;">
 						<div>
 							<img src="../static/img/tools.svg" alt="" width="50px;" height="39px;">
 							&nbsp;<b>校园宿舍报修平台</b>
@@ -38,7 +42,7 @@
 							</a>
 							<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-light dropdown-caret dropdown-close" style="min-width: 112px;margin: 1px 6px 0px;border-radius: 15px !important;">
 								<li style="width: 106px;margin-left: 2px;">
-									<a href="/">
+									<a href="/logout" onclick="return confirm('确定退出登录吗？');">
 										<div style="font-size: 16px;">
 											<img src="../static/img/box-arrow-up.svg" alt="" width="20px;" height="20px;">
 											退出登录
@@ -69,7 +73,7 @@
 
 				<ul class="nav nav-list" style="width: 280px;height: 540px;">
 					<li class="active" style="border-top-width: 0px;">
-						<a href="/toIndexPage" style="height: 60px;padding-top: 19.6px;">
+						<a href="/admin/main" style="height: 60px;padding-top: 19.6px;">
 							&nbsp;&nbsp;<img src="../static/img/emoji-laughing.svg" alt="" width="20px;" height="20px;">&nbsp;&nbsp;&nbsp;
 							<span style="font-size: 16px;"> 欢迎 </span>
 						</a>

@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>登陆</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>登陆页面 - 报修-后台管理系统</title>
+  <link rel="icon" href="../static/img/tools.svg">
+  <meta name="keywords" content="校园宿舍报修平台,SpringBoot">
+  <meta name="description" content="这是一个基于SprinBoot v2.3.7RELEASE 的后台管理系统。">
+  <meta name="author" content="liukun">
   <link href="../static/css/Bootstrap v5.3.0-alpha1/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
@@ -14,14 +17,14 @@
 
   <main class="form-signin w-100 m-auto">
     <img class="mb-4" src="../static/img/tools.svg" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">校园宿舍报修平台</h1>
-    <form name="myForm" method="post" action="/login" onsubmit="SubmitLogin()">
+    <h1 class="h3 mb-5 fw-normal">校园宿舍报修平台</h1>
+    <form name="myForm" method="post" action="/admin/login" onsubmit="SubmitLogin()">
       <div class="form-floating">
-        <input type="text" name="username" value="123" class="form-control" id="Account" placeholder="Account">
-        <label for="Account"><img src="../static/img/person.svg">&nbsp;账号</label>
+        <input type="username" name="username" value="admin" class="form-control" id="Account" placeholder="Account">
+        <label for="Account"><img src="../static/img/person.svg">&nbsp;用户名</label>
       </div>
       <div class="form-floating">
-        <input type="password" name="password" value="123" class="form-control" id="Password" placeholder="Password">
+        <input type="password" name="password" value="admin" class="form-control" id="Password" placeholder="Password">
         <label for="Password"><img src="../static/img/lock.svg">&nbsp;密码</label>
       </div>
       <div class="form-floating mt-0 mb-0">
@@ -32,9 +35,10 @@
         </select>
       </div>
 
-      <button class="w-100 btn btn-lg btn-primary mt-5" type="submit">登录</button>
+      <button class="w-100 btn btn-lg btn-primary mt-5" type="submit">立即登录</button>
     </form>
-      <p class="mt-5 mb-3 text-muted">&copy; 2023 Dorm Repair</p>
+<!--    <div th:text="${error}" style="color: red;font-size: 12px;text-align: center;width: 100%;">错误信息提示</div>-->
+    <p class="mt-5 mb-3 text-muted">&copy; 2023 Dorm Repair</p>
   </main>
 
 </body>
