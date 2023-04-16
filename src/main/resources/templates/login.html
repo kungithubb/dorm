@@ -3,56 +3,62 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <title>登陆 - 报修-后台管理系统</title>
+  <title>昆虫报修</title>
   <link rel="icon" href="../static/img/tools.svg">
-  <meta name="keywords" content="校园宿舍报修平台,SpringBoot">
-  <meta name="description" content="这是一个基于SprinBoot v2.3.7RELEASE 的后台管理系统。">
-  <meta name="author" content="liukun">
-  <link href="../static/css/Bootstrap v5.3.0-alpha1/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="../static/css/sign-in.css" rel="stylesheet">
+  <meta name="keywords" content="校园宿舍报修平台">
+  <meta name="description" content="基于SprinBoot的校园宿舍报修平台">
+  <meta name="author" content="kun">
+  <link href="../static/css/login.css" rel="stylesheet">
 </head>
-<body class="text-center">
-  <main class="form-signin w-100 m-auto">
-    <a href="/admin/login"><img class="mb-2" src="../static/img/tools.svg" alt="" width="72" height="57"></a>
-    <h1 class="h3 mb-4 fw-normal"><b>校园宿舍报修平台</b></h1>
-    <form name="myForm" method="post" action="/admin/login" onsubmit="SubmitLogin()">
-      <div class="form-floating">
-        <input type="username" name="username" value="admin" class="form-control" id="Account" placeholder="Account">
-        <label for="Account"><img src="../static/img/person.svg">&nbsp;用户名</label>
+<body>
+  <div class="login">
+    <div class="loginForm" style="display: block;">
+      <h2 class="loginbox-title">帐号登录</h2>
+      <div class="m-header"></div>
+      <div class="m-cnt">
+        <form name="myForm" method="post" action="/admin/login" onsubmit="SubmitLogin()">
+          <div>
+            <!-- 账号 -->
+            <div class="inputbox" id="account-box">
+              <div class="u-input">
+                <input type="username" name="username" class="form-control inputbox" placeholder="用户名">
+              </div>
+            </div>
+            <div class="fur-change-email"></div>
+            <!-- 密码 -->
+            <div class="inputbox">
+              <div class="u-input">
+                <input type="password" name="password" class="form-control inputbox" placeholder="输入密码">
+              </div>
+            </div>
+            <!-- 登录按钮 -->
+            <div class="loginbox">
+              <button class="u-loginbtn btncolor" type="submit">登&nbsp;&nbsp;录</button>
+            </div>
+          </div>
+        </form>
+        <div class="login-agreement">
+          阅读并接受
+          <a href="/service/click" target="_blank">《服务条款》</a>
+          和 <a data-tj-name="b-mail-privacy-click" href="/private/click" target="_blank">《隐私政策》</a>
+        </div>
       </div>
-      <div class="form-floating">
-        <input type="password" name="password" value="admin" class="form-control" id="Password" placeholder="Password">
-        <label for="Password"><img src="../static/img/lock.svg">&nbsp;密码</label>
-      </div>
-      <div class="form-floating mt-0 mb-0">
-        <select class="form-select" id="Status" style="padding: 18px 36px 18px 12px;">
-          <option>学生</option>
-          <option>维修人员</option>
-          <option>管理员</option>
-        </select>
-      </div>
-
-      <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">立即登录</button>
-    </form>
-    <p class="mt-1 text-muted">&copy; 2023 Dorm Repair</p>
-  </main>
-
+    </div>
+  </div>
 </body>
 <script>
   //提交登录
   function SubmitLogin() {
     //判断用户名是否为空
     if (!myForm.username.value) {
-      alert("请输入用户姓名！");
+      alert("请输入用户名！");
       myForm.username.focus();
       return false;
     }
 
     //判断密码是否为空
     if (!myForm.password.value) {
-      alert("请输入登录密码！");
+      alert("请输入密码！");
       myForm.password.focus();
       return false;
     }

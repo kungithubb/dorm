@@ -5,7 +5,7 @@ server:
       max: 200
       min-spare: 30
     connection-timeout: 5000ms
-  port: 8080  #配置服务器端口
+  port: 1210  #配置服务器端口
   servlet:
     context-path: /
 
@@ -17,12 +17,12 @@ spring:
     password: 2019212960
     hikari:  #配置连接池
       minimum-idle: 5
-      idle-timeout: 180000
+      idle-timeout: 10000
       maximum-pool-size: 10
       auto-commit: true
       pool-name: MyHikariCP
-      max-lifetime: 180000
-      connection-timeout: 60000
+      max-lifetime: 30000
+      connection-timeout: 10000
   freemarker:
     charset: UTF-8
     suffix: .html
