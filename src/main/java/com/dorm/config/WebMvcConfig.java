@@ -55,6 +55,7 @@ public class WebMvcConfig implements WebMvcConfigurer{
                 "/",
                 "/index",           //登录页面
                 "/admin/login",            //登录请求
+                "/register",
                 "*.css",
                 "*.js",
                 "*.jpg",

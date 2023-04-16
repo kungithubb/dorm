@@ -24,7 +24,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             return true;
         }
         request.setAttribute("error","请先登 录系统！");
-        request.getRequestDispatcher("/index").forward(request,response);
+        request.getRequestDispatcher("/admin/login").forward(request,response);
         return false;
     }
 
