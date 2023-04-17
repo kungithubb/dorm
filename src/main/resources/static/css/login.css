@@ -186,7 +186,7 @@ input::-webkit-input-placeholder {
   height: 16px;
   line-height: 16px;
   text-align: center;
-  padding: 2px 0 9px 0;
+  padding: 12px 0 9px 0;
 }
 
 .m-cnt .m-unlogin .forgetpwd {
@@ -226,7 +226,7 @@ input::-webkit-input-placeholder {
 
 .m-left {
   width: 800px;
-  height: 500px;
+  height: 740px;
   border: 1px solid #ffd0a6;
   margin: 0px 100px;
 }
